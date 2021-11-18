@@ -16,7 +16,7 @@ const service = {
             const salt = await bcrypt.genSalt();
             req.body.password = await bcrypt.hash(req.body.password, salt)
             // Insert User to DB
-        await db.users.insertOne(req.body);
+        await db.admin.insertOne(req.body);
         res.send("User added");
         } catch (err) {
             console.error("Insert error");
