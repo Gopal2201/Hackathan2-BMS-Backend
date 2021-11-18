@@ -9,7 +9,7 @@ const service = {
         try {
             // Check if user already exists
             req.body.email = req.body.email.toLowerCase();
-            const user = await db.users.findOne({email: req.body.email});
+            const user = await db.admin.findOne({email: req.body.email});
             if (user) { return res.sendStatus(400) };
             
             // Encrypt Password
